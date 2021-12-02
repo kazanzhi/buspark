@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    text-align: center;
+}
+
+body {
+    padding: 2%;
+    min-height: 100vh;
+}
+
+.signin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buslist {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.bus_header {
+}
+
+.bus_footer {
+    display: flex;
+    justify-content: end;
+}
+
+.bus-list_item {
+    list-style: none;
+    margin: 50px 0;
+    border: 2px solid rgb(142, 78, 207);
+}
+
+.current-rent {
+    position: fixed;
+    right: 60px;
+    margin: 50px 0;
+    border: 2px solid rgb(142, 78, 207);
+}
