@@ -1,6 +1,6 @@
 ﻿using Dapper;
 using Microsoft.Extensions.Configuration;
-using MySql.Data.MySqlClient;
+using Npgsql;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -23,7 +23,7 @@ namespace BusParking
 	username, password)
 	VALUES (@username, @password);";
 
-            using IDbConnection connection = new MySqlConnection(GetDefaultConnectionString());
+            using IDbConnection connection = new NpgsqlConnection(GetDefaultConnectionString());
 
             connection.Query<int>(sqlExpressionToInsert, new
             {
@@ -37,7 +37,7 @@ namespace BusParking
             const string sql = @"SELECT id as Id, username as Username, password as Password
     FROM driver;";
 
-            using IDbConnection connection = new MySqlConnection(GetDefaultConnectionString());
+            using IDbConnection connection = new NpgsqlConnection(GetDefaultConnectionString());
 
             var drives = connection.Query<Driver>(sql);
 
@@ -46,7 +46,7 @@ namespace BusParking
 
         public List<BusStatus> GetBusRentInfo()
         {
-            using IDbConnection connection = new MySqlConnection(GetDefaultConnectionString());
+            using IDbConnection connection = new NpgsqlConnection(GetDefaultConnectionString());
 
             const string sqlExpressionToGetAllStories = @"SELECT lastbusstatus.id as Id,
 lastbusstatus.date as Date, 
@@ -89,12 +89,12 @@ LEFT JOIN driver d on lastbusstatus.driverid = d.id;";
 
         public void AddBusStatus(BusStatus busStatus)
         {
-            var sqlExpressionToInsert = @"INSERT INTO `buspark`.`busstatus`
-(`driverid`, `busid`, `date`, `status`)
+            var sqlExpressionToInsert = @"INSERT INTO busstatus
+(driverid, busid, date, status)
 VALUES
 (@driverid, @busid, @date, @status);";
 
-            using IDbConnection connection = new MySqlConnection(GetDefaultConnectionString());
+            using IDbConnection connection = new NpgsqlConnection(GetDefaultConnectionString());
 
             connection.Query<int>(sqlExpressionToInsert, new
             {
