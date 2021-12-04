@@ -1,4 +1,5 @@
-﻿using Dapper;
+﻿using BusParking.Contract;
+using Dapper;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Linq;
 
 namespace BusParking
 {
-    public class RentRepository
+    public class RentRepository : IRentRepository
     {
         private const string _defaultConnectionStringName = "DevDefault";
         private readonly IConfiguration _configuration;
@@ -16,7 +17,7 @@ namespace BusParking
         {
             _configuration = configuration;
         }
-
+        
         public void SaveDriver(Driver driver)
         {
             var sqlExpressionToInsert = @"INSERT INTO driver(

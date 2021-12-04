@@ -118,9 +118,9 @@ export class AppComponent {
     this.service.register(this.formregister.getRawValue())
       .subscribe((res: any) => {
         this.errorMessage = "";
-        this.isLoogedIn = true;
-        localStorage.setItem("loggedin", "true");
-        localStorage.setItem("lastId", res.id);
+        this.isLoogedIn = false;
+        localStorage.removeItem("loggedin");
+        localStorage.removeItem("lastId");
         window.location.reload();
       },
         error => {

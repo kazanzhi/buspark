@@ -1,11 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
 * {
     text-align: center;
+    font-size: 20px;
 }
 
 body {
     padding: 2%;
     min-height: 100vh;
+    background-color: #0C090E;
+    padding-top: 2%;
+}
+
+.linkbtn,
+h1,
+button,
+.text,
+p {
+    color: #fff!important;
 }
 
 .signin {
@@ -14,15 +26,17 @@ body {
     align-items: center;
 }
 
-.buslist {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    max-width: 80%;
-    margin: 0 auto;
+.formcntrl {
+    margin: 2px 0;
+    border-style: none;
 }
 
-.bus_header {
+.buslist {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-weight: bold;
+    flex-wrap: wrap;
 }
 
 .bus_footer {
@@ -30,15 +44,301 @@ body {
     justify-content: end;
 }
 
+.bus_owner>div {
+    margin: 15px 0;
+}
+
 .bus-list_item {
     list-style: none;
-    margin: 50px 0;
-    border: 2px solid rgb(142, 78, 207);
+    box-sizing: border-box;
+    max-width: 50%;
+    margin: 15px 0;
+    padding: 20px 0 0 0;
 }
 
 .current-rent {
     position: fixed;
+    top: 70px;
     right: 60px;
     margin: 50px 0;
-    border: 2px solid rgb(142, 78, 207);
+}
+
+.flex-par {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 80%;
+}
+
+.flex-dat {
+    padding: 15px;
+    box-sizing: border-box;
+    width: 30%;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+}
+
+.formcntrl {
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 25px;
+    height: 100%;
+    outline: 0;
+    padding: 8px;
+    width: 100%;
+}
+
+
+/* NEW STYLES FOR DATA */
+
+.bus_header {
+    background-color: #15172b;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 20px;
+    width: 320px;
+}
+
+.title {
+    color: #eee;
+    font-family: sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    margin-top: 30px;
+}
+
+.subtitle {
+    color: #eee;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.input-container {
+    height: 50px;
+    position: relative;
+    width: 100%;
+}
+
+.ic1 {
+    margin-top: 25px;
+}
+
+.ic2 {
+    margin-top: 30px;
+}
+
+.input {
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 16px;
+    height: 100%;
+    outline: 0;
+    padding: 15px 20px 0;
+    width: 100%;
+}
+
+.cut {
+    background-color: #15172b;
+    border-radius: 10px;
+    height: 20px;
+    left: 20px;
+    position: absolute;
+    top: -20px;
+    transform: translateY(0);
+    transition: transform 200ms;
+    width: 130px;
+}
+
+.cut-short {
+    width: 50px;
+}
+
+.input:focus~.cut,
+.input:not(:placeholder-shown)~.cut {
+    transform: translateY(8px);
+}
+
+.placeholder2 {
+    left: 20px;
+    line-height: 14px;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 20px;
+}
+
+.input:focus~.placeholder2,
+.input:not(:placeholder-shown)~.placeholder2 {
+    transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+
+.input:not(:placeholder-shown)~.placeholder2 {
+    color: #808097;
+}
+
+.submit {
+    background-color: #08d;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 38px;
+    text-align: center;
+    width: 100%;
+}
+
+.submit:active {
+    background-color: #06b;
+}
+
+
+/* HEADER */
+
+.header-dark {
+    background-size: cover;
+}
+
+.header-dark .navbar {
+    background: transparent;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: #fff;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+}
+
+.header-dark .navbar .navbar-brand {
+    font-weight: bold;
+    color: inherit;
+}
+
+.header-dark .navbar .navbar-brand:hover {
+    color: #f0f0f0;
+}
+
+.header-dark .navbar .navbar-collapse span {
+    margin-top: 5px;
+}
+
+.header-dark .navbar .navbar-collapse span .login {
+    color: #d9d9d9;
+    margin-right: .5rem;
+    text-decoration: none;
+}
+
+.header-dark .navbar .navbar-collapse span .login:hover {
+    color: #fff;
+}
+
+.header-dark .navbar .navbar-toggler {
+    border-color: #747474;
+}
+
+.header-dark .navbar .navbar-toggler:hover,
+.header-dark .navbar-toggler:focus {
+    background: none;
+}
+
+.header-dark .navbar .navbar-toggler {
+    color: #eee;
+}
+
+.header-dark .navbar .navbar-collapse,
+.header-dark .navbar .form-inline {
+    border-color: #636363;
+}
+
+@media (min-width: 992px) {
+    .header-dark .navbar.navbar .navbar-nav .nav-link {
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+    }
+}
+
+.header-dark .navbar.navbar-dark .navbar-nav .nav-link {
+    color: #d9d9d9;
+}
+
+.header-dark .navbar.navbar-dark .navbar-nav .nav-link:focus,
+.header-dark .navbar.navbar-dark .navbar-nav .nav-link:hover {
+    color: #fcfeff !important;
+    background-color: transparent;
+}
+
+.header-dark .navbar .navbar-nav>li>.dropdown-menu {
+    margin-top: -5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.header-dark .navbar .dropdown-menu .dropdown-item:focus,
+.header-dark .navbar .dropdown-menu .dropdown-item {
+    line-height: 2;
+    font-size: 14px;
+    color: #37434d;
+}
+
+.header-dark .navbar .dropdown-menu .dropdown-item:focus,
+.header-dark .navbar .dropdown-menu .drodown-item:hover {
+    background: #ebeff1;
+}
+
+.header-dark .navbar .action-button,
+.header-dark .navbar .action-button:active {
+    background: #208f8f;
+    border-radius: 20px;
+    font-size: inherit;
+    color: #fff;
+    box-shadow: none;
+    border: none;
+    text-shadow: none;
+    padding: .5rem .8rem;
+    transition: background-color 0.25s;
+}
+
+.header-dark .navbar .action-button:hover {
+    background: #269d9d;
+}
+
+.header-dark .navbar .form-inline label {
+    color: #ccc;
+}
+
+.header-dark .navbar .form-inline .search-field:focus {
+    border-bottom: 1px solid #ccc;
+}
+
+.header-dark .hero {
+    margin-top: 60px;
+}
+
+.header-dark .hero h1 {
+    color: #fff;
+    font-family: 'Bitter', serif;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+
+.header-dark .hero .embed-responsive iframe {
+    background-color: #666;
+}
+
+.flexbtw {
+    display: flex;
+    justify-content: space-between;
 }

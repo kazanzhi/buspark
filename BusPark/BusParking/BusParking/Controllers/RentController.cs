@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusParking.Contract;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +12,11 @@ namespace BusParking.Controllers
     [ApiController]
     public class RentController : ControllerBase
     {
-        private readonly RentRepository _rentRepository;
+        private readonly IRentRepository _rentRepository;
 
-        public RentController(IConfiguration configuration)
+        public RentController(IRentRepository rentRepository)
         {
-            _rentRepository = new RentRepository(configuration);
+            _rentRepository = rentRepository;
         }
 
         [HttpPost("login")]
@@ -63,7 +65,23 @@ namespace BusParking.Controllers
                 Password = HashPassword(registerRequest.Password)
             };
 
-            _rentRepository.SaveDriver(driver);
+            try
+            {
+                _rentRepository.SaveDriver(driver);
+            }
+            catch (PostgresException ex)
+            {
+                var error = ex.Message;
+                return error.Contains("duplicate key value violates unique constraint") ?
+                    BadRequest(new
+                    {
+                        Message = "User with such username exists."
+                    }) :
+                    BadRequest(new
+                    {
+                        Message = "Unknown error occured. Please, try again later."
+                    });
+            }
 
             return Ok(new { Id = driver.Id });
         }
@@ -81,6 +99,9 @@ namespace BusParking.Controllers
             var rentStatus = _rentRepository.GetBusRentInfo();
             var busInfo = rentStatus.FirstOrDefault(r =>
                 r.Bus.Id == rentBusRequest.BusId);
+
+            if (rentBusRequest.DriverId == 0)
+                return BadRequest(new { Message = "Wrong DriverId." });
 
             if (busInfo is null || busInfo.Status == "rent")
             {
@@ -112,6 +133,9 @@ namespace BusParking.Controllers
             var rentStatus = _rentRepository.GetBusRentInfo();
             var busInfo = rentStatus.FirstOrDefault(r =>
                 r.Bus.Id == rentBusRequest.BusId);
+
+            if (rentBusRequest.DriverId == 0)
+                return BadRequest(new { Message = "Wrong DriverId." });
 
             if (busInfo is null || busInfo.Status == "unrent")
             {

@@ -1,41 +1,41 @@
 <div class="error" *ngIf="errorMessage.length > 0">
-  <p>{{ errorMessage }}</p>
+    <p>{{ errorMessage }}</p>
 </div>
 
 <div class="signin" *ngIf="!isLoogedIn">
-  <div class="login" *ngIf="isLoginState">
-    <form [formGroup]="formlogin" autocomplete='off' class='form' (submit)="logIn()">
-      <div class='control'>
-        <h1>
-          Log in
-        </h1>
-      </div>
-      <div class='control block-cube block-input'>
-        <input formControlName="username" name='username' placeholder='Username' type='text' required>
-        <div class='bg-top'>
-          <div class='bg-inner'></div>
-        </div>
-        <div class='bg-right'>
-          <div class='bg-inner'></div>
-        </div>
-        <div class='bg'>
-          <div class='bg-inner'></div>
-        </div>
-      </div>
-      <div class='control block-cube block-input'>
-        <input formControlName="password" name='password' placeholder='Password' type='password' required>
-        <div class='bg-top'>
-          <div class='bg-inner'></div>
-        </div>
-        <div class='bg-right'>
-          <div class='bg-inner'></div>
-        </div>
-        <div class='bg'>
-          <div class='bg-inner'></div>
-        </div>
-      </div>
+    <div class="login" *ngIf="isLoginState">
+        <form [formGroup]="formlogin" autocomplete='off' class='form' (submit)="logIn()">
+            <div class='control'>
+                <h1>
+                    Log in
+                </h1>
+            </div>
+            <div class='control block-cube block-input'>
+                <input formControlName="username" name='username' placeholder='Username' type='text' required class="formcntrl">
+                <div class='bg-top'>
+                    <div class='bg-inner'></div>
+                </div>
+                <div class='bg-right'>
+                    <div class='bg-inner'></div>
+                </div>
+                <div class='bg'>
+                    <div class='bg-inner'></div>
+                </div>
+            </div>
+            <div class='control block-cube block-input'>
+                <input formControlName="password" name='password' placeholder='Password' type='password' required class="formcntrl">
+                <div class='bg-top'>
+                    <div class='bg-inner'></div>
+                </div>
+                <div class='bg-right'>
+                    <div class='bg-inner'></div>
+                </div>
+                <div class='bg'>
+                    <div class='bg-inner'></div>
+                </div>
+            </div>
 
-      <button class='btn block-cube block-cube-hover' type='submit'>
+            <button class='btn block-cube block-cube-hover' type='submit'>
         <div class='bg-top'>
           <div class='bg-inner'></div>
         </div>
@@ -49,8 +49,8 @@
           Log In
         </div>
       </button>
-      <br>
-      <button class='btn block-cube block-cube-hover' type='button' (click)="changeState(false)">
+            <br>
+            <button class='btn block-cube block-cube-hover' type='button' (click)="changeState(false)">
         <div class='bg-top'>
           <div class='bg-inner'></div>
         </div>
@@ -64,42 +64,42 @@
           I need an account
         </div>
       </button>
-    </form>
-  </div>
+        </form>
+    </div>
 
-  <div class="signup" *ngIf="!isLoginState">
-    <form [formGroup]="formregister" autocomplete='off' class='form' (submit)="register()">
-      <div class='control'>
-        <h1>
-          Sign up
-        </h1>
-      </div>
-      <div class='control block-cube block-input'>
-        <input formControlName="username" name='username' placeholder='Username' type='text' required>
-        <div class='bg-top'>
-          <div class='bg-inner'></div>
-        </div>
-        <div class='bg-right'>
-          <div class='bg-inner'></div>
-        </div>
-        <div class='bg'>
-          <div class='bg-inner'></div>
-        </div>
-      </div>
-      <div class='control block-cube block-input'>
-        <input formControlName="password" name='password' placeholder='Password' type='password' required>
-        <div class='bg-top'>
-          <div class='bg-inner'></div>
-        </div>
-        <div class='bg-right'>
-          <div class='bg-inner'></div>
-        </div>
-        <div class='bg'>
-          <div class='bg-inner'></div>
-        </div>
-      </div>
+    <div class="signup" *ngIf="!isLoginState">
+        <form [formGroup]="formregister" autocomplete='off' class='form' (submit)="register()">
+            <div class='control'>
+                <h1>
+                    Sign up
+                </h1>
+            </div>
+            <div class='control block-cube block-input'>
+                <input formControlName="username" name='username' placeholder='Username' type='text' required class="formcntrl">
+                <div class='bg-top'>
+                    <div class='bg-inner'></div>
+                </div>
+                <div class='bg-right'>
+                    <div class='bg-inner'></div>
+                </div>
+                <div class='bg'>
+                    <div class='bg-inner'></div>
+                </div>
+            </div>
+            <div class='control block-cube block-input'>
+                <input formControlName="password" name='password' placeholder='Password' type='password' required class="formcntrl">
+                <div class='bg-top'>
+                    <div class='bg-inner'></div>
+                </div>
+                <div class='bg-right'>
+                    <div class='bg-inner'></div>
+                </div>
+                <div class='bg'>
+                    <div class='bg-inner'></div>
+                </div>
+            </div>
 
-      <button class='btn block-cube block-cube-hover' type='submit'>
+            <button class='btn block-cube block-cube-hover' type='submit'>
         <div class='bg-top'>
           <div class='bg-inner'></div>
         </div>
@@ -113,8 +113,8 @@
           Sign Up
         </div>
       </button>
-      <br>
-      <button class='btn block-cube block-cube-hover' type='button' (click)="changeState(true)">
+            <br>
+            <button class='btn block-cube block-cube-hover' type='button' (click)="changeState(true)">
         <div class='bg-top'>
           <div class='bg-inner'></div>
         </div>
@@ -128,80 +128,124 @@
           I have an account
         </div>
       </button>
-    </form>
-  </div>
+        </form>
+    </div>
 </div>
 
-<div class="logout" *ngIf="isLoogedIn">
-  <button class="btn btn-error" (click)="logout()">Log out</button>
+<div *ngIf="isLoogedIn">
+    <div class="header-dark">
+        <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search flexbtw">
+            <div class="container">
+                <a class="navbar-brand" href="#">BUS PARKING COORPORATION</a>
+                <div class="logout">
+                    <button class="btn btn-error s" (click)="logout()">Log out</button>
+                </div>
+            </div>
+        </nav>
+    </div>
 </div>
 
 <div class="buslist" *ngIf="isLoogedIn">
-  <div class="list">
-    <ul class="bust-list" *ngIf="BusList.length > 0">
-      <li class="bus-list_item" *ngFor="let busItem of BusList">
-        <div class="bus_header">
-          <div class="bus_owner">
-            <p class="bus_status" *ngIf="busItem.status !== null">
-              Status: {{ busItem.status }}
-            </p>
-            <p class="bus_date" *ngIf="busItem.date !== '0001-01-01T00:00:00'">
-              Date: {{ busItem.date }}
-            </p>
-            <div class="owner_name" *ngIf="busItem.driver !== null">
-              Last owner: {{ busItem.driver.username }}
-            </div>
+    <div class="list">
+        <ul class="bust-list flex-par" *ngIf="BusList.length > 0">
+            <li class="bus-list_item flex-dat" *ngFor="let busItem of BusList">
+                <div class="bus_header">
+                    <div class="input-container ic1" *ngIf="busItem.status !== null">
+                        <div id="firstname" class="input">{{ busItem.status }}</div>
+                        <div class="cut"></div>
+                        <div class="placeholder2">Status</div>
+                    </div>
 
-            <div class="bus_vin">
-              Vin: {{ busItem.bus.vinNumber }}
-            </div>
-            <div class="bus_route">
-              Router: {{ busItem.bus.routeNumber }}
-            </div>
-            <div class="bus_mark">
-              Mark: {{ busItem.bus.mark }}
-            </div>
-            <div class="bus_maxp">
-              Max Passangers: {{ busItem.bus.maxPassangers }}
-            </div>
-          </div>
-        </div>
-        <div class="bus_footer">
-          <button class="btn btn-info w-100" (click)="rentbus(busItem.bus.id)"
-            *ngIf="CurrentRent === null && (busItem.status === 'unrent' || busItem.status == null)">Rent</button>
-        </div>
-      </li>
-    </ul>
-  </div>
+                    <div class="input-container ic1" *ngIf="busItem.date !== '0001-01-01T00:00:00'">
+                        <div id="firstname" class="input">{{ busItem.date }}</div>
+                        <div class="cut"></div>
+                        <div class="placeholder2">Date</div>
+                    </div>
 
-  <div class="current-rent" *ngIf="CurrentRent !== null">
-    <div class="bus_header">
-      <div class="bus_owner">
-        <p class="bus_status" *ngIf="CurrentRent.status !== null">
-          Status: {{ CurrentRent.status }}
-        </p>
-        <p class="bus_date" *ngIf="CurrentRent.date !== '0001-01-01T00:00:00'">
-          Date: {{ CurrentRent.date }}
-        </p>
-        <div class="owner_name" *ngIf="CurrentRent.driver !== null">
-          Last owner: {{ CurrentRent.driver.username }}
-        </div>
+                    <div class="input-container ic1" *ngIf="busItem.driver !== null">
+                        <div id="firstname" class="input">{{ busItem.driver.username }}</div>
+                        <div class="cut"></div>
+                        <div class="placeholder2">Last owner</div>
+                    </div>
 
-        <div class="bus_vin">
-          Vin: {{ CurrentRent.bus.vinNumber }}
-        </div>
-        <div class="bus_route">
-          Router: {{ CurrentRent.bus.routeNumber }}
-        </div>
-        <div class="bus_mark">
-          Mark: {{ CurrentRent.bus.mark }}
-        </div>
-        <div class="bus_maxp">
-          Max Passangers: {{ CurrentRent.bus.maxPassangers }}
-        </div>
-      </div>
+                    <div class="input-container ic1">
+                        <div id="firstname" class="input">{{ busItem.bus.vinNumber }}</div>
+                        <div class="cut"></div>
+                        <div class="placeholder2">Vin</div>
+                    </div>
+
+                    <div class="input-container ic1">
+                        <div id="firstname" class="input">{{ busItem.bus.routeNumber }}</div>
+                        <div class="cut"></div>
+                        <div class="placeholder2">Route</div>
+                    </div>
+
+                    <div class="input-container ic1">
+                        <div id="firstname" class="input">{{ busItem.bus.mark }}</div>
+                        <div class="cut"></div>
+                        <div class="placeholder2">Mark</div>
+                    </div>
+
+                    <div class="input-container ic1">
+                        <div id="firstname" class="input">{{ busItem.bus.maxPassangers }}</div>
+                        <div class="cut"></div>
+                        <div class="placeholder2">Max Passangers</div>
+                    </div>
+                    <div class="bus_footer">
+                        <button class="btn btn-info w-100 submit" (click)="rentbus(busItem.bus.id)" *ngIf="CurrentRent === null && (busItem.status === 'unrent' || busItem.status == null)">Rent</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
-    <button class="btn btn-info w-100" (click)="unrentbus(CurrentRent.bus.id)"
-    *ngIf="CurrentRent.status === 'rent'">UnRent</button>
-  </div>
+
+    <div class="current-rent" *ngIf="CurrentRent !== null">
+        <div class="bus_header">
+            <h1 class="display-6">Current rent:</h1>
+            <div class="input-container ic1" *ngIf="CurrentRent.status !== null">
+                <div id="firstname" class="input">{{ CurrentRent.status }}</div>
+                <div class="cut"></div>
+                <div class="placeholder2">Status</div>
+            </div>
+
+            <div class="input-container ic1" *ngIf="CurrentRent.date !== '0001-01-01T00:00:00'">
+                <div id="firstname" class="input">{{ CurrentRent.date }}</div>
+                <div class="cut"></div>
+                <div class="placeholder2">Date</div>
+            </div>
+
+            <div class="input-container ic1" *ngIf="CurrentRent.driver !== null">
+                <div id="firstname" class="input">{{ CurrentRent.driver.username }}</div>
+                <div class="cut"></div>
+                <div class="placeholder2">Last owner</div>
+            </div>
+
+            <div class="input-container ic1">
+                <div id="firstname" class="input">{{ CurrentRent.bus.vinNumber }}</div>
+                <div class="cut"></div>
+                <div class="placeholder2">Vin</div>
+            </div>
+
+            <div class="input-container ic1">
+                <div id="firstname" class="input">{{ CurrentRent.bus.routeNumber }}</div>
+                <div class="cut"></div>
+                <div class="placeholder2">Route</div>
+            </div>
+
+            <div class="input-container ic1">
+                <div id="firstname" class="input">{{ CurrentRent.bus.mark }}</div>
+                <div class="cut"></div>
+                <div class="placeholder2">Mark</div>
+            </div>
+
+            <div class="input-container ic1">
+                <div id="firstname" class="input">{{ CurrentRent.bus.maxPassangers }}</div>
+                <div class="cut"></div>
+                <div class="placeholder2">Max Passangers</div>
+            </div>
+            <div class="bus_footer">
+                <button class="btn btn-info w-100 submit" (click)="unrentbus(CurrentRent.bus.id)" *ngIf="CurrentRent.status === 'rent'">UnRent</button>
+            </div>
+        </div>
+    </div>
 </div>

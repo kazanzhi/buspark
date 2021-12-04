@@ -1,3 +1,4 @@
+using BusParking.Contract;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +27,8 @@ namespace BusParking
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IRentRepository, RentRepository>();
+
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowAll", policy =>
